@@ -1,0 +1,9 @@
+= simple_form_for project, method: :post, remote: true do |f|
+  .modal-header
+    %h4#myModalLabel.modal-title= I18n.t('new.project')
+  .modal-body
+    = f.input :name, required: false
+  .modal-footer
+    /= f.button :submit, class: 'btn btn-success'
+    = button_tag(type: :submit, class: 'btn btn-success') do
+      = I18n.t('new.project')

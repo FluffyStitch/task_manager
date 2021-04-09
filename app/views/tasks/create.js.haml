@@ -1,0 +1,2 @@
+$(".tasks").append("#{j(render(partial: 'task', locals: {task: @task.model }))}");
+$(".project_#{j(@task.project_id)}").find('#new_task').trigger('reset');

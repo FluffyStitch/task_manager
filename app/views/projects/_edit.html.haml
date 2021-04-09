@@ -1,0 +1,8 @@
+= simple_form_for project, method: :patch, remote: true do |f|
+  .modal-header
+    %h4#myModalLabel.modal-title= I18n.t('edit.project')
+  .modal-body
+    = f.input :name
+  .modal-footer
+    = button_tag(type: :submit, class: 'btn btn-success') do
+      = I18n.t('edit.project')

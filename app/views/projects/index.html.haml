@@ -1,0 +1,9 @@
+= render partial: 'sign_out'
+= render partial: 'header'
+.container.text-center
+  #projects_wrapper
+    = render partial: 'project', collection: @projects
+  = link_to 'Add TODO List', new_project_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg text-light mb-4'}
+#modal-window.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog"}
+  .modal-dialog{:role => "document"}
+    .modal-content

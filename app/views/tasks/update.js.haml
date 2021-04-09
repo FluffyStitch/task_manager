@@ -1,0 +1,2 @@
+$(".task_#{j(@task.id)}").replaceWith("#{j(render(partial: 'task', locals: {task: @task.model }))}");
+$("#modal-window").modal('hide');
