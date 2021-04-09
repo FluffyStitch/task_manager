@@ -6,6 +6,7 @@
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}
     = csrf_meta_tags
     = csp_meta_tag
+     = stylesheet_pack_tag "application", media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body{ style: 'background: linear-gradient(0deg, rgba(255,165,2,1) 0%, rgba(180,180,180,1) 75%) center; height: 100vh; background-attachment: fixed;' }
     #flash_div
