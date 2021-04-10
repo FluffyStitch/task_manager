@@ -1,8 +1,8 @@
 = simple_form_for task, url: task_path(task), method: :put, remote: true do |f|
   .modal-header
-    %h4#myModalLabel.modal-title= I18n.t('task.project')
+    %h4#myModalLabel.modal-title= I18n.t('edit.task')
   .modal-body
     = f.input :text
   .modal-footer
     = button_tag(type: :submit, class: 'btn btn-success') do
-      = I18n.t('task.project')
+      = I18n.t('edit.task')

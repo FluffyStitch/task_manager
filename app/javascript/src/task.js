@@ -1,6 +1,7 @@
-$(() =>
+$(() => {
   $(document).on('click', '.visibility_button', changeVisibility)
-)
+  $(document).on('click', '#task_completed', changeCompleted)
+})
 
 function changeVisibility() {
   let deadline_div = $(this).parent().parent().find('.task_deadline')
@@ -14,4 +15,9 @@ function changeVisibility() {
     deadline_input.removeAttr('disabled')
     deadline_input.removeAttr('readonly')
   }
+}
+
+function changeCompleted() {
+  let task_id = $(this).attr('task_id')
+  $.ajax(`tasks/${task_id}/complete`, { type: 'PUT' })
 }

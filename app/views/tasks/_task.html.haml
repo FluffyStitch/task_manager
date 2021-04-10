@@ -1,7 +1,7 @@
 %tr.border-top{ class: "task_#{task.id}"}
   %th.border-right.border-top.text-center{ style: 'width: 3%' }
     .custom-control.custom-checkbox
-      %input.form-check-input.position-static{ type: 'checkbox' }
+      %input#task_completed.form-check-input.position-static{ type: 'checkbox', task_id: task.id, checked: task.completed }
   %th.border-right{ style: 'width: 82%' }
     %p.text-muted.fs-6.my-1
       = task.text

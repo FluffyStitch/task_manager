@@ -1,0 +1,8 @@
+$(".project_#{j(@task.project_id)}").find('.task_form').html("#{j(render(partial: 'inline_form', locals: {project: @task.model.project, task: @task }))}");
+$(() => flatpickr($(".project_#{j(@task.project_id)}").find('.datepicker'), { minDate: 'today' }));
+- if params.dig(:task, :deadline)
+    deadline = $(".project_#{j(@task.project_id)}").find('.task_deadline')
+    deadline_input = deadline.find('#task_deadline')
+    deadline.show()
+    deadline_input.removeAttr('disabled')
+    deadline_input.removeAttr('readonly')

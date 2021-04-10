@@ -1,0 +1,8 @@
+= simple_form_for task, url: project_tasks_path(project.id), remote: true do |f|
+  .row.justify-content-center
+    %div{ style: 'width: 83%' }
+      = f.input :text, as: :string, label: false, required: false, placeholder: I18n.t('create.task.text'), input_html: { style: 'width: 100%' }, wrapper_html: { class: 'my-2' }
+      = f.input :deadline, as: :string, label: false, required: false, disabled: true, placeholder: I18n.t('create.task.date'), input_html: { class: 'datepicker' }, wrapper_html: { style: 'display: none;' }
+    .my-2{ style: 'width: 14%' }
+      = button_tag(type: :submit, class: 'btn btn-success', style: 'width: 98%') do
+        = I18n.t('new.task')

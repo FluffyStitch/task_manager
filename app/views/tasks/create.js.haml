@@ -1,2 +1,3 @@
-$(".tasks").append("#{j(render(partial: 'task', locals: {task: @task.model }))}");
-$(".project_#{j(@task.project_id)}").find('#new_task').trigger('reset');
+$(".project_#{j(@task.project_id)}").find('.tasks').append("#{j(render(partial: 'task', locals: {task: @task.model }))}");
+$(".project_#{j(@task.project_id)}").find('.task_form').html("#{j(render(partial: 'inline_form', locals: {project: @task.model.project, task: Task.new }))}");
+$(() => flatpickr($(".project_#{j(@task.project_id)}").find('.datepicker'), { minDate: 'today' }));

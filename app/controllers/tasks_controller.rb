@@ -1,26 +1,21 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  def new
-    @task = TaskForm.new(Task.new)
-  end
 
   def create
     @task = TaskForm.new(current_user.projects.find_by(id: params[:project_id]).tasks.new)
-    @task.save if @task.validate(task_params)
+    @task.validate(task_params) ? @task.save : render(:new)
   end
 
   def reprioritate
     @task = current_user.tasks.find_by(id: params[:task_id])
     params[:up] == '1' ? @task.move_higher : @task.move_lower
-    @tasks = @task.project.tasks
-    render :index
   end
 
   def complete
     task = current_user.tasks.find_by(id: params[:task_id])
     task.update(completed: !task.completed)
-    render status: :ok
+    render json: '', status: :ok
   end
 
   def edit
