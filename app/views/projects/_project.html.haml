@@ -1,17 +1,18 @@
-%table.table-hover.table-light.rounded-bottom.my-5{ class: "project_#{project.id}"}
+%table.table-hover.table-light.rounded-bottom.my-5{ class: "project_#{project.id}", style: 'width: 100%' }
   %thead
     %tr
       %th.bg-gradient-primary.text-center
         %i.bi-calendar-event{ style: 'font-size: 1.25rem;' }
       %th.bg-gradient-primary.text-white{style: 'font-size: 18px; width: 82%; '}
-        = project.name
-      %th.bg-gradient-primary.d-md-flex.justify-content-md-end
+        .d-flex.justify-content-start
+          = project.name
+      %th.bg-gradient-primary.d-flex.justify-content-end
         .border-right.px-3
-          = link_to edit_project_path(project), {remote: true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} do
-            %i.bi-pencil{ style: 'font-size: 1.25rem;' }
+          = link_to edit_project_path(project), {remote: true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window' } do
+            %i.bi-pencil.grey{ style: 'font-size: 1.25rem;' }
         .px-3
           = link_to project_path(project), method: :delete, remote: true do
-            %i.bi-trash{ style: 'font-size: 1.25rem;' }
+            %i.bi-trash.grey{ style: 'font-size: 1.25rem;' }
     %tr
       %th.text-success.bg-secondary
         %i.visibility_button.bi-plus{ style: 'font-size: 2rem;' }

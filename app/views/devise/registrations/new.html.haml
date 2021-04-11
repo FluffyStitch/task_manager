@@ -8,9 +8,9 @@
         = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = f.error_notification
           .form-inputs
-            = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, wrapper_html: { class: 'd-flex justify-content-end' }, label_html: { class: 'mx-1 my-2' }
-            = f.input :password, required: true, input_html: { autocomplete: "new-password" }, wrapper_html: { class: 'd-flex justify-content-end' }, label_html: { class: 'mx-1 my-2' }
-            = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, wrapper_html: { class: 'd-flex justify-content-end' }, label_html: { class: 'mx-1 my-2' }
+            = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email", style: 'width: 70%' }, wrapper_html: { class: 'd-flex justify-content-end' }, label_html: { class: 'mx-2 my-2' }
+            = f.input :password, required: true, input_html: { autocomplete: "new-password", style: 'width: 70%' }, wrapper_html: { class: 'd-flex justify-content-end' }, label_html: { class: 'mx-2 my-2' }
+            = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", style: 'width: 70%' }, wrapper_html: { class: 'd-flex justify-content-end' }, label_html: { class: 'mx-2 my-2' }
           .form-actions
             = f.button :submit, "Sign up"
         = render "devise/shared/links"

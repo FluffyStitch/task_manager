@@ -4,6 +4,4 @@
   .modal-body
     = f.input :name, required: false
   .modal-footer
-    /= f.button :submit, class: 'btn btn-success'
-    = button_tag(type: :submit, class: 'btn btn-success') do
-      = I18n.t('new.project')
+    = f.button :submit, I18n.t('new.project')

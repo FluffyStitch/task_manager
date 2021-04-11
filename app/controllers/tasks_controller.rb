@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-
   def create
     @task = TaskForm.new(current_user.projects.find_by(id: params[:project_id]).tasks.new)
     @task.validate(task_params) ? @task.save : render(:new)
@@ -9,7 +8,7 @@ class TasksController < ApplicationController
 
   def reprioritate
     @task = current_user.tasks.find_by(id: params[:task_id])
-    params[:up] == '1' ? @task.move_higher : @task.move_lower
+    ActiveModel::Type::Boolean.new.cast(params[:up]) ? @task.move_higher : @task.move_lower
   end
 
   def complete

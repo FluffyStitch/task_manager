@@ -1,3 +1,1 @@
 $(".project_#{j(@task.project_id)} > .tasks").html("#{j(render(partial: 'task', collection: @task.project.tasks))}");
-$(".project_#{j(@task.project_id)}").find('#new_task').trigger('reset');
-$("#modal-window").modal('hide');
