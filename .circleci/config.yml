@@ -17,7 +17,7 @@ jobs:
           cache-key: "yarn.lock"
       - run:
           name: lefthook
-          command: bundle exec lefthook
+          command: bundle exec lefthook run pre-commit
 #   build:
 #     docker:
 #       - image: cimg/ruby:2.7.2-browsers
