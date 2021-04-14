@@ -31,10 +31,14 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+options = Selenium::WebDriver::Chrome::Options.new
+options.add_argument('headless')
+
 Capybara.register_driver(:chrome) do |app|
   Capybara::Selenium::Driver.new(
     app,
-    browser: :chrome
+    browser: :chrome,
+    options: options
   )
 end
 
