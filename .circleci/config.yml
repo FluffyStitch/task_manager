@@ -21,7 +21,7 @@ jobs:
 
   testing:
     docker:
-      - image: cimg/ruby:2.7.2-node
+      - image: cimg/ruby:2.7.2-node-browsers
       - image: circleci/postgres:13.1
         environment:
           POSTGRES_USER: postgres
