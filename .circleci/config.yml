@@ -21,7 +21,7 @@ jobs:
 
   testing:
     docker:
-      - image: cimg/ruby:2.7.2-browsers
+      - image: cimg/ruby:2.7.2-node
       - image: circleci/postgres:13.1
         environment:
           POSTGRES_USER: postgres
@@ -35,6 +35,8 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           cache-key: "yarn.lock"
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
