@@ -30,3 +30,15 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+Capybara.register_driver(:chrome) do |app|
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome
+  )
+end
+
+Capybara.configure do |config|
+  config.default_driver = :chrome
+  config.javascript_driver = :chrome
+end
