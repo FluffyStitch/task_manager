@@ -14,7 +14,6 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
 gem 'reform-rails'
-gem 'rspec-rails'
 gem 'sass-rails', '>= 6'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
@@ -23,6 +22,7 @@ gem 'webpacker', '~> 5.0'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -33,4 +33,13 @@ group :development do
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'web-console', '>= 4.1.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'ffaker'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'site_prism'
+  gem 'webdrivers'
 end
