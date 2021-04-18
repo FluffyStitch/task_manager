@@ -22,27 +22,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  config.include Devise::Test::IntegrationHelpers, type: :feature
 end
 
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-end
-
-options = Selenium::WebDriver::Chrome::Options.new
-options.add_argument('headless')
-
-Capybara.register_driver(:chrome) do |app|
-  Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    options: options
-  )
-end
-
-Capybara.configure do |config|
-  config.default_driver = :chrome
-  config.javascript_driver = :chrome
-end
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
