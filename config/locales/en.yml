@@ -12,3 +12,12 @@ en:
   new:
     project: 'New project'
     task: 'Add task'
+  project:
+    errors:
+      deadline:
+        invalid_format: is invalid date format
+  sign_up:
+    password:
+      confirmation: Password confirmation
+  log_in:
+    remember_me: Remember me

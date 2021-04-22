@@ -1,3 +1,2 @@
-$(".project_#{j(@project.id)}").replaceWith("#{j(render(partial: 'project', locals: {project: @project.model }))}");
-$(() => flatpickr($(".project_#{j(@project.id)}").find('.datepicker'), { minDate: 'today' }))
+$("#project_#{j(@project.id)}").find('#name').html("#{j(@project.name)}");
 $("#modal-window").modal('hide');

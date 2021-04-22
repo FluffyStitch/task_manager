@@ -8,26 +8,34 @@ RSpec.describe 'Log in', type: :feature, js: true do
     current_page.load
   end
 
-  it 'success' do
-    current_page.form.email.fill_in(with: user.email)
-    current_page.form.password.fill_in(with: user.password)
-    current_page.form.remember_me.check
-    current_page.form.sign_in.click
+  describe 'log in' do
+    before do
+      current_page.form.email.fill_in(with: user.email)
+      current_page.form.password.fill_in(with: password)
+      current_page.form.remember_me.check
+      current_page.form.sign_in.click
+    end
 
-    expect(current_page).to have_content 'Signed in successfully.'
-  end
+    context 'when params is valid' do
+      let(:password) { user.password }
 
-  it 'failed' do
-    current_page.form.email.fill_in(with: user.email)
-    current_page.form.password.fill_in(with: 'sometext')
-    current_page.form.sign_in.click
+      it 'success' do
+        expect(current_page).to have_content I18n.t('devise.sessions.signed_in')
+      end
+    end
 
-    expect(current_page).to have_content 'Invalid Email or password.'
+    context 'when password is not correct' do
+      let(:password) { FFaker::Internet.email }
+
+      it 'failed' do
+        expect(current_page).to have_content I18n.t('devise.failure.invalid', authentication_keys: 'Email')
+      end
+    end
   end
 
   it 'redirect to sign up page' do
     current_page.sign_up.click
 
-    expect(current_page).to have_content 'Password confirmation'
+    expect(current_page).to have_content I18n.t('sign_up.password.confirmation')
   end
 end

@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-SimpleCov.start
-SimpleCov.minimum_coverage 95
+SimpleCov.start do
+  minimum_coverage 95
+  add_filter 'app/admin'
+end
 
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -22,7 +24,6 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  config.include Devise::Test::IntegrationHelpers, type: :feature
 end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }

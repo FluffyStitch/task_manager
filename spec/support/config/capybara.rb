@@ -15,4 +15,5 @@ Capybara.configure do |config|
   config.default_driver = :chrome
   config.javascript_driver = :chrome
   config.enable_aria_label = true
+  config.default_max_wait_time = 10
 end
