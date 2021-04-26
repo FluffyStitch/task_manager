@@ -26,6 +26,6 @@ class ProjectIndex < SitePrism::Page
   end
 
   def second_task
-    first_project.tasks[2]
+    first_project.tasks.last
   end
 end

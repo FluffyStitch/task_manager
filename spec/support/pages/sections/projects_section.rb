@@ -8,5 +8,5 @@ class Projects < SitePrism::Section
   element :plus, '.visibility_button'
   section :new_task, NewTask, '#new_task'
 
-  sections :tasks, AllTasks, 'tbody [id^=task_]'
+  sections :tasks, AllTasks, 'tbody tr[id^=task_]'
 end
