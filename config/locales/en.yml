@@ -1,0 +1,23 @@
+en:
+  header: 'Simple TODO lists'
+  create:
+    project:
+      success: 'Project successfully created!'
+    task:
+      text: 'Start typing here to create a task...'
+      date: 'Click to add deadline for a task...'
+  edit:
+    project: 'Edit project'
+    task: 'Edit task'
+  new:
+    project: 'New project'
+    task: 'Add task'
+  project:
+    errors:
+      deadline:
+        invalid_format: is invalid date format
+  sign_up:
+    password:
+      confirmation: Password confirmation
+  log_in:
+    remember_me: Remember me

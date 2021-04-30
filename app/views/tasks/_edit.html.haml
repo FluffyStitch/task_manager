@@ -1,0 +1,7 @@
+= simple_form_for task, url: task_path(task), method: :put, remote: true do |f|
+  .modal-header
+    %h4#myModalLabel.modal-title= I18n.t('edit.task')
+  .modal-body
+    = f.input :text
+  .modal-footer
+    = f.button :submit, I18n.t('edit.task')

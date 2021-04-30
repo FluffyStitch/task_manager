@@ -1,0 +1,24 @@
+%tr.border-top{ id: "task_#{task.id}"}
+  %th.border-right.border-top{ style: 'width: 4%' }
+    .custom-control.custom-checkbox
+      %input#task_completed.form-check-input{ type: 'checkbox', task_id: task.id, checked: task.completed }
+  %th.border-right
+    .d-flex.justify-content-start.mx-1
+      %p.text-muted.fs-6.my-1.text-left
+        = task.text
+    .d-flex.justify-content-start.mx-1
+      %p.text-muted.my-1.deadline
+        = task.deadline
+  %th
+    .d-flex.justify-content-center
+      .d-flex.flex-column.px-3.border-right
+        = link_to task_reprioritate_path(task, up: 1), method: :put, remote: true do
+          %i.bi-chevron-up.dark-grey
+        = link_to task_reprioritate_path(task, up: 0), method: :put, remote: true do
+          %i.bi-chevron-down.dark-grey
+      .d-flex.align-items-center.px-3.border-right
+        = link_to edit_task_path(task), { remote: true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window' } do
+          %i.bi-pencil.dark-grey
+      .d-flex.align-items-center.px-3
+        = link_to task_path(task), method: :delete, remote: true do
+          %i.bi-trash.dark-grey
